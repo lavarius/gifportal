@@ -9,7 +9,6 @@ pub mod gifportal {
     pub fn start_stuff_off(_ctx: Context<StartStuffOff>) -> ProgramResult {
         Ok(())
     }
-
 }
 
 #[derive(Accounts)]

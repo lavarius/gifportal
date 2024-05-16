@@ -1,18 +1,15 @@
-const anchor = require("@project-serum/anchor");
-// const { SystemProgram } = anchor.web3;
-// const solanaWeb3 = require('@solana/web3.js');
+const anchor = require("@coral-xyz/anchor");
 
 const main = async () => {
     console.log("Starting test...");
 
-    // Set the provider
-    anchor.setProvider(anchor.Provider.env());
+    // use the testnet
+    // const provider = new anchor.Provider('https://api.testnet.solana.com', {}, 'testnet');
 
-    // Replace with your cluster URL
-    // const providerUrl = 'https://api.devnet.solana.com';
-    // const provider = new solanaWeb3.Connection(providerUrl, 'confirmed');
+    // Set the provider
+    anchor.setProvider(anchor.AnchorProvider.env());
     // anchor.setProvider(provider);
-    const program = anchor.workspace.Gifportal;
+    const program = anchor.workspace.gifportal;
     const tx = await program.rpc.startStuffOff();
     console.log("Your transaction signature", tx);
 };
