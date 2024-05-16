@@ -3,14 +3,19 @@ const anchor = require("@coral-xyz/anchor");
 const main = async () => {
     console.log("Starting test...");
 
-    // use the testnet
-    // const provider = new anchor.Provider('https://api.testnet.solana.com', {}, 'testnet');
-
     // Set the provider
-    anchor.setProvider(anchor.AnchorProvider.env());
-    // anchor.setProvider(provider);
-    const program = anchor.workspace.gifportal;
-    const tx = await program.rpc.startStuffOff();
+    // anchor.setProvider(anchor.AnchorProvider.env());
+
+    const program = anchor.workspace.Gifportal;
+
+    const account = anchor.web3.Keypair.generate();
+
+    const tx = await program.rpc.startStuffOff({
+        accounts: {
+            // Specify the account here
+            myAccount: account.publicKey
+        },
+    });
     console.log("Your transaction signature", tx);
 };
 
