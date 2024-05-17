@@ -15,7 +15,7 @@ pub mod gifportal {
 
 #[derive(Accounts)]
 pub struct StartStuffOff<'info> {
-    #[account(init, payer=user, space=9000)]
+    #[account(init, payer=user, space=8 + 8)]
     pub base_account: Account<'info, BaseAccount>,
     #[account(mut)]
     pub user: Signer<'info>,
